@@ -229,6 +229,28 @@ void deletesamegmail()
         ptr1 = ptr1->next; 
     } 
     } 
+void deletesamenumber()
+    {
+     ptr1=head;
+        while (ptr1 != NULL && ptr1->next != NULL) 
+    { 
+        ptr2 = ptr1; 
+        while (ptr2->next != NULL) 
+        { 
+            if (strcmp(ptr1->number,ptr2->number)==0)
+            { 
+                dup = ptr2->next; 
+                ptr2->next = ptr2->next->next; 
+                delete(dup); 
+            } 
+            else
+            {
+                ptr2 = ptr2->next; 
+        }
+        }
+        ptr1 = ptr1->next; 
+    }    
+    }
 int main()
 {
     char n[20];
@@ -267,6 +289,10 @@ int main()
     scanf("%s",name);
     deletecontact(name);
     break;
+case 6:
+	deletesamenumber();
+    display();
+			
     case 7:
     do
     {
